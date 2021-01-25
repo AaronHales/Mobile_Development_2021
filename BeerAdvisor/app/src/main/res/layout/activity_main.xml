@@ -35,7 +35,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:entries="@array/type_array" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
     <Button
         android:id="@+id/find_beer"
@@ -43,15 +50,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:text="Button" />
+        android:text="@string/find_drink"
+        android:onClick="onClick_findDrink" />
 
     <TextView
+        android:id="@+id/brands"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/brands"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:text="This is a text view" />
+        android:text="@string/brands" />
 
 
 </LinearLayout>

@@ -1,3 +1,35 @@
 <resources>
-    <string name="app_name">Beer Advisor</string>
+    <!-- App Name -->
+    <string name="app_name">Drink Advisor</string>
+
+    <!-- Credit -->
+    <string name="author">Aaron Hales</string>
+    <string name="copyright_date">Jan. 25, 2021</string>
+    <string name="company_madeby">Tooele School District</string>
+    <string name="art_by"></string>
+    <string name="head_developers">Aaron Hales</string>
+    <string name="company_for"></string>
+    <string name="contributors"></string>
+
+    <!-- Information -->
+    <string name="language">English</string>
+    <string name="version">Version 0.0.1</string>
+
+    <!-- In-app resources/data -->
+    <string name="find_drink">Find Drink</string>
+    <string name="brands">No Drink Selected</string>
+
+    <!-- array for soda spinner -->
+    <string-array name="type_array">
+        <item>Clear</item>
+        <item>Dark Cola</item>
+        <item>Punch</item>
+        <item>Diet</item>
+        <item>Zero Sugar</item>
+        <item>Energy Drinks</item>
+        <item>Tea</item>
+        <item>Coffee</item>
+
+    </string-array>
+
 </resources>
