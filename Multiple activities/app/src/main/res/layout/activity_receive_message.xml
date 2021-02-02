@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:textAlignment="center"
+    tools:context=".ReceiveMessageActivity">
+
+    <TextView
+        android:id="@+id/received_txt"
+        android:layout_width="match_parent"
+        android:layout_height="432dp"
+        android:layout_margin="5dp"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/back_bttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/backtxt"
+        android:textSize="23sp" />
+
+</LinearLayout>

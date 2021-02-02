@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,16 +34,18 @@
         android:id="@+id/color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_gravity="center"
         android:layout_margin="16dp"
+        android:layout_marginTop="40dp"
         android:entries="@array/type_array" />
 
+    <!--
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+    -->
 
     <Button
         android:id="@+id/find_beer"
@@ -50,8 +53,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
+        android:onClick="onClick_findDrink"
         android:text="@string/find_drink"
-        android:onClick="onClick_findDrink" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:backgroundTint="#0C22EA"
+        app:iconTint="#0C22EA"
+        app:rippleColor="#0C22EA" />
 
     <TextView
         android:id="@+id/brands"
@@ -59,7 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:text="@string/brands" />
+        android:text="@string/brands"
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
 
 </LinearLayout>
