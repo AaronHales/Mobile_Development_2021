@@ -4,34 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
+    android:layout_margin="10dp"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:textAlignment="center"
-    tools:context=".ReceiveMessageActivity">
+    android:padding="5dp">
 
     <TextView
-        android:id="@+id/received_txt"
+        android:id="@+id/pg3Welcome"
         android:layout_width="match_parent"
-        android:layout_height="432dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:padding="5dp"
         android:text="TextView"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <Button
-        android:id="@+id/back_bttn"
+        android:id="@+id/goToPg1bttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="@string/backtxt"
-        android:textSize="23sp" />
-
-    <Button
-        android:id="@+id/forward_bttn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="@string/forwardtxt"
-        android:textSize="23sp" />
+        android:onClick="onBttn3Click"
+        android:padding="5dp"
+        android:text="Go to page 1"
+        android:textSize="26sp" />
 
 </LinearLayout>

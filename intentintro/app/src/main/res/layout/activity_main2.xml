@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".MainActivity2">
+
+    <TextView
+        android:id="@+id/welcomelblpg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="TextView"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/agelblpg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="TextView"
+        android:textSize="21sp" />
+
+    <Button
+        android:id="@+id/goToPg3bttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBttn2Click"
+        android:padding="5dp"
+        android:text="Go to page 3"
+        android:textSize="26sp" />
+</LinearLayout>

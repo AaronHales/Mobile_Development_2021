@@ -3,4 +3,5 @@
     <string name="introlbl">Type the message you want to pass on</string>
     <string name="bttntext">Pass Message</string>
     <string name="backtxt">Go Back</string>
+    <string name="forwardtxt">Go Forward</string>
 </resources>
