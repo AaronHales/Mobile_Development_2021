@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         test.setText(number.toString());
 
     }
+
     public void onGuess(View view) {
         tries--;
         EditText guessbox = (EditText)findViewById(R.id.number_field);

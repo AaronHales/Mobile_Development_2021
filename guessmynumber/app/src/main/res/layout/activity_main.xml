@@ -41,7 +41,8 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="20dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="number"
+        android:maxLength="10" />
 
     <Button
         android:id="@+id/submitbttn"
@@ -52,7 +53,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="20dp"
         android:onClick="onGuess"
-        android:text="Guess Number"
+        android:text="@string/guess"
         android:textSize="18sp" />
 
     <TextView

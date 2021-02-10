@@ -6,6 +6,8 @@
     <string name="wrong">You guessed wrong, maybe try harder</string>
     <string name="high">Guess higher</string>
     <string name="low">Guess lower</string>
+    <string name="guess">Guess number</string>
+    <string name="nextguess">Make next guess</string>
 
     <string name="auth">Aaron Hales</string>
     <string name="company">Tooele County School District</string>
