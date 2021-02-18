@@ -12,18 +12,28 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     int guess;
     int tries = 3;
-    Integer number;
+    Random r = new Random();
+    Integer number = r.nextInt(10) + 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Random r = new Random();
-        number = r.nextInt(10);
-        number++;
+
+        if (savedInstanceState != null) {
+            number = savedInstanceState.getInt("number");
+            tries = savedInstanceState.getInt("tries");
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView test = (TextView)findViewById(R.id.testoutput);
         test.setText(number.toString());
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("tries", tries);
+        savedInstanceState.putInt("number", number);
     }
 
     public void onGuess(View view) {

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Stop Watch</string>
+    <!-- Main Activity -->
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="reset">Reset</string>
+    <!-- Main Activity 2 -->
+    <string name="destroyed">I was destroyed</string>
+    <string name="go_back">Go Back</string>
 </resources>
