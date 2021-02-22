@@ -12,6 +12,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private boolean running = false;
     private int seconds = 0;
+    private boolean wasRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,23 +21,49 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             seconds = savedInstanceState.getInt("seconds");
             running = savedInstanceState.getBoolean("running");
+            wasRunning = savedInstanceState.getBoolean("wasRunning");
         }
         runTimer();
     }
-    /*
+
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Intent intent = new Intent(this, MainActivity2.class);
-        startActivity(intent);
+    protected void onStart() {
+        super.onStart();
     }
-     */
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (wasRunning) {
+            running = true;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        wasRunning = running;
+        running = false;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putInt("seconds", seconds);
         savedInstanceState.putBoolean("running", running);
+        savedInstanceState.putBoolean("wasRunning", wasRunning);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //Intent intent = new Intent(this, MainActivity2.class);
+        //startActivity(intent);
     }
 
     public void onClickStart(View view) {
