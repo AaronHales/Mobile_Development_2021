@@ -47,24 +47,114 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onButtonClicked"
         android:text="Testing" />
 
     <ToggleButton
-        android:id="@+id/toggle_bttn"
+        android:id="@+id/toggleBttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onToggle"
         android:checked="false"
-        android:textOff="Off"
-        android:textOn="ON" />
+        android:onClick="onToggleBttn"
+        android:textOff="@string/off_txt"
+        android:textOn="@string/on_txt" />
 
     <Switch
+        android:id="@+id/toggleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onToggle"
         android:checked="false"
-        android:textOff="Off"
-        android:textOn="ON" />
+        android:onClick="onToggleSwitch"
+        android:textOff="@string/off_txt"
+        android:textOn="@string/on_txt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onCheckedCb"
+            android:text="Wheat" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onCheckedCb"
+            android:text="White" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:onClick="onCheckedCb"
+            android:text="Whole Grain" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/jelly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioChecked"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioChecked"
+                android:text="Strawberry" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioChecked"
+                android:text="Grape" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="radioChecked"
+                android:text="Mixed Berry" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/spinner_values" />
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/madeline"
+        android:contentDescription="@string/img_desc"
+        android:layout_gravity="center_horizontal"/>
 
 
 </LinearLayout>

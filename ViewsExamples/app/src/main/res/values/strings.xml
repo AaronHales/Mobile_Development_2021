@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ViewsExamples</string>
+    <string-array name="spinner_values">
+        <item>Burnt Toast</item>
+        <item>Perfectly Toasted</item>
+        <item>Lightly Toasted</item>
+    </string-array>
+    <string name="img_desc">Picture of a game character of Madeline for the game Celeste. She is in a low resolution style of art called 16 bit. She has red hair, a blue hoodie, and a backpack.</string>
+    <string name="on_txt">On</string>
+    <string name="off_txt">Off</string>
 </resources>
