@@ -14,6 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -141,12 +142,10 @@ public class MainActivity extends AppCompatActivity {
             pic.setImageResource(image);
             pic.setContentDescription(description);
         }
-        else if (pic.getResources().equals( R.drawable.androidlogo)) {
-            int image = R.drawable.madeline;
-            String description = "Picture of a game character of Madeline for the game Celeste. She is in a low resolution style of art called 16 bit. She has red hair, a blue hoodie, and a backpack.";
-            pic.setImageResource(image);
-            pic.setContentDescription(description);
-        }
+        CharSequence text = "This is a toast message";
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(this, text, duration);
+        toast.show();
 
     }
 }

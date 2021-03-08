@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Order Form</string>
+    <string-array name="sizes">
+        <item>8 fl oz</item>
+        <item>12 fl oz</item>
+        <item>16 fl oz</item>
+        <item>20 fl oz</item>
+    </string-array>
+
+    <string-array name="sprinkles">
+        <item>Extra Cinnamon Sprinkles</item>
+        <item>Light Cinnamon Sprinkles</item>
+        <item>Cinnamon Sprinkles</item>
+        <item>No Cinnamon Sprinkles</item>
+    </string-array>
+
+    <string-array name="drizzles">
+        <item>Caramel Drizzle</item>
+        <item>Mocha Drizzle</item>
+    </string-array>
+
+    <string-array name="cream">
+        <item>Extra Whipped Cream</item>
+        <item>Light Whipped Cream</item>
+        <item>Whipped Cream</item>
+        <item>No Whipped Cream</item>
+    </string-array>
+</resources>
