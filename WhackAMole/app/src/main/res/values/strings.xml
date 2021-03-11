@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Whack-A-Mole</string>
+    <string name="bttn_text">:)</string>
+    <string name="start_score">Score: 0</string>
+</resources>
