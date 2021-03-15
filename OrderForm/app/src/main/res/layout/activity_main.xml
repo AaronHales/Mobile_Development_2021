@@ -49,29 +49,34 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/drink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="radioChecked"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/tea_bttn"
+                    android:id="@+id/tea_radio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="radioChecked"
                     android:text="Tea" />
 
                 <RadioButton
-                    android:id="@+id/coffee_bttn"
+                    android:id="@+id/coffee_radio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="radioChecked"
                     android:text="Coffee" />
 
                 <RadioButton
-                    android:id="@+id/hotchoc_bttn"
+                    android:id="@+id/hotchoc_radio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="radioChecked"
                     android:text="Hot Chocolate" />
             </RadioGroup>
 

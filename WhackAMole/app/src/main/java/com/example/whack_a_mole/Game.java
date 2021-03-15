@@ -2,12 +2,16 @@ package com.example.whack_a_mole;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Game extends AppCompatActivity implements View.OnClickListener{
 
@@ -26,7 +30,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
     // The following variables are used to configure the game
     // Establish default game configuration settings here!
     String playerName = "Default";
-    int difficultyLevel = 2;    // 1 = easy, 2 = medium, 3 = hard
+    int difficultyLevel = 2;    // 1 = hard, 2 = medium, 3 = easy
     int numMules = 8;           // any value between 3 and 8
     int duration = 20;          // and value up to 30 seconds
 
@@ -34,28 +38,75 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+
+        initButtons(); // Initialize all 8 buttons
+        setNewMole(); // Set one mole as the current mole
+        setTimer(difficultyLevel * 1000);
     }
 
     @Override
     public void onClick(View v) {
-        // Build later
+        if (isComplete) {
+            return;
+        }
+        if (v == currentMole) {
+            score++;
+            TextView tvscore = (TextView) findViewById(R.id.score);
+            tvscore.setText("Score: " + score);
+            setNewMole();
+        }
     }
 
     // This method is called when the game is completed
     public void gameOver() {
-        // Pass for now
+        // Set the isComplete variable to true to stop the timer
+        isComplete = true;
+        TextView tvscore = (TextView) findViewById(R.id.score);
+        tvscore.setText("Game Over!\nScore: " + score);
+
+        // Create a new Intent for the GameOver screen and pass the number of
+        // hits for the player and the player's name
+        Intent gameoverintent = new Intent(this, GameOver.class);
+        gameoverintent.putExtra("score", score);
+        gameoverintent.putExtra("name", playerName);
+        // Start the new activity with our intent
+        startActivity(gameoverintent);
+        finish();
     }
 
     // This method wil choose a new button as the current mole
     // ** This method is provided complete as part of the activity starter. **
     public void setNewMole() {
+        Random generator = new Random(); // Create a random number generator
 
+        int randomItem = generator.nextInt(numMules);
+
+        int newButtonId = myButtonIDs.get(randomItem);
+        if (currentMole != null) {
+            currentMole.setVisibility(View.INVISIBLE);
+        }
+        Button newMole = (Button) findViewById(newButtonId);
+        newMole.setVisibility(View.VISIBLE);
+        currentMole = newMole;
     }
 
     // This method will retrieve all mole button IDs and place them into
     // our array of integer Button IDs.
     public void initButtons() {
-
+        ViewGroup group = (ViewGroup) findViewById(R.id.GameLayout);
+        View v;
+        // Now we can loop through all the controls and find just the buttons
+        for (int i = 0; i < group.getChildCount(); i++) {
+            v = group.getChildAt(i);
+            if (v instanceof Button) {
+                v.setOnClickListener(this); // Set the onClickListener for the button
+                // If the game is not over
+                if (!isComplete) {
+                    myButtonIDs.add(v.getId()); // Add the Button ID to the array
+                    v.setVisibility(View.INVISIBLE); // Set the Button to invisible
+                }
+            }
+        }
     }
 
     // This method will create the timer that will allow us to switch current moles
@@ -85,7 +136,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
 
         // If the ending time is greater than the current time, keep the game going
         if (endtime > System.currentTimeMillis()) {
-            setNewMole();   // set a new mole on the screen
+            setNewMole();   // Set a new mole on the screen
         }
         else {
             gameOver();     // If the ending time is less than the current time, the game is over
