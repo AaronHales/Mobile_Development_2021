@@ -5,42 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GameOver">
+    tools:context=".WMTitleScreen">
 
     <TextView
-        android:id="@+id/tvmessage"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_weight="0.5"
         android:gravity="center"
-        android:text="You hit times."
+        android:text="Title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/tvGameOver"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="55dp"
-        android:gravity="center"
-        android:text="Game Over!"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_weight="2"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/buttonPlay"
+        android:id="@+id/title_playbttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
         android:onClick="onClick"
-        android:text="Play Again" />
+        android:text="Play" />
 
     <Button
-        android:id="@+id/buttonScores"
+        android:id="@+id/title_optionsbttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
         android:onClick="onClick"
-        android:text="View Scores" />
+        android:text="Options" />
 </LinearLayout>
