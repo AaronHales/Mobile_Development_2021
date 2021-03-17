@@ -199,7 +199,7 @@
                 android:textOn="Iced" />
 
             <Switch
-                android:id="@+id/temp_switch"
+                android:id="@+id/child_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -209,7 +209,7 @@
                 android:textOn="On" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/regular_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -227,21 +227,22 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pick up"
+            android:text="Order Type"
             android:textSize="16sp" />
 
         <ToggleButton
-            android:id="@+id/toggle_bttn"
+            android:id="@+id/pickup_toggle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ToggleButton"
-            android:textOff="In Store"
-            android:textOn="Curb Side" />
+            android:textOff="To Go"
+            android:textOn="To Stay" />
 
         <Button
             android:id="@+id/submit_bttn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onSubmitClicked"
             android:text="Submit Order" />
 
     </LinearLayout>
