@@ -79,5 +79,5 @@
         android:layout_gravity="center"
         android:layout_weight="1.5"
         android:gravity="center"
-        android:text="@string/start_score" />
+        android:text="Score: 0" />
 </LinearLayout>

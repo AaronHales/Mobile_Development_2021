@@ -39,9 +39,15 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
 
+//        Bundle bun = getIntent().getExtras();
+//        playerName = bun.getString("name");
+//        difficultyLevel = bun.getInt("difficulty");
+//        numMules = bun.getInt("numMoles");
+//        duration = bun.getInt("duration");
+
         initButtons(); // Initialize all 8 buttons
         setNewMole(); // Set one mole as the current mole
-        setTimer(difficultyLevel * 1000);
+        setTimer(difficultyLevel * 1000); // Start the timer
     }
 
     @Override

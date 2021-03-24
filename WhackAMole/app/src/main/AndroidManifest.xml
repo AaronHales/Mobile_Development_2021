@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/launchericon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WhackAMole">
-        <activity android:name=".OptionScreen"></activity>
+        <activity android:name=".Options"></activity>
         <activity android:name=".WMTitleScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
