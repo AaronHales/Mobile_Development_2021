@@ -3,6 +3,7 @@ package com.example.whack_a_mole;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -31,7 +32,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
     // Establish default game configuration settings here!
     String playerName = "Default";
     int difficultyLevel = 2;    // 1 = hard, 2 = medium, 3 = easy
-    int numMules = 8;           // any value between 3 and 8
+    int numMoles = 8;           // any value between 3 and 8
     int duration = 20;          // and value up to 30 seconds
 
     @Override
@@ -39,11 +40,20 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
 
+//        // Retrieve game options form incoming intent
 //        Bundle bun = getIntent().getExtras();
 //        playerName = bun.getString("name");
 //        difficultyLevel = bun.getInt("difficulty");
 //        numMules = bun.getInt("numMoles");
 //        duration = bun.getInt("duration");
+
+        // Get a reference to the shared preferences for our application
+        SharedPreferences prefs = getSharedPreferences("WhackSettings", MODE_PRIVATE);
+        // Get the player name, nuumber of moles, duration, and difficulty values
+        playerName = prefs.getString("name", "Default");
+        difficultyLevel = prefs.getInt("difficulty", 1);
+        numMoles = prefs.getInt("numMoles", 8);
+        duration = prefs.getInt("duration", 20);
 
         initButtons(); // Initialize all 8 buttons
         setNewMole(); // Set one mole as the current mole
@@ -85,7 +95,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
     public void setNewMole() {
         Random generator = new Random(); // Create a random number generator
 
-        int randomItem = generator.nextInt(numMules);
+        int randomItem = generator.nextInt(numMoles);
 
         int newButtonId = myButtonIDs.get(randomItem);
         if (currentMole != null) {

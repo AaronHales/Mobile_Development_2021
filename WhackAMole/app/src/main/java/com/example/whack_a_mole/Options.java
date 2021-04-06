@@ -113,6 +113,7 @@ public class Options extends AppCompatActivity implements View.OnClickListener {
             hard.setChecked(true);
         }
 
+
     }
 
     private void saveSettingsInIntent(int difficulty, String name, int numMoles, int duration, Intent myIntent) {
