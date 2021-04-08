@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,40 +7,74 @@
     android:orientation="vertical"
     tools:context=".GameOver">
 
-    <TextView
-        android:id="@+id/tvmessage"
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="You hit times."
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/dirt_ground" />
 
-    <TextView
-        android:id="@+id/tvGameOver"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="55dp"
-        android:gravity="center"
-        android:text="Game Over!"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:adjustViewBounds="true"
+        android:rotation="180"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/grass_bottom_small" />
 
-    <Button
-        android:id="@+id/buttonPlay"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:text="Play Again" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/buttonScores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:onClick="onClick"
-        android:text="View Scores" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvGameOver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Game Over!"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tvmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="55dp"
+            android:gravity="center"
+            android:text="You hit times."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="Play Again"
+            android:textSize="16sp"
+            app:backgroundTint="#084702"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/buttonScores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="View Scores"
+            android:textSize="16sp"
+            app:backgroundTint="#084702"
+            app:cornerRadius="20dp" />
+    </LinearLayout>
+
+</FrameLayout>

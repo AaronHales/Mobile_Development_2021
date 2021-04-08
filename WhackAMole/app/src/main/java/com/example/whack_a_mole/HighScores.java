@@ -1,14 +1,19 @@
 package com.example.whack_a_mole;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
@@ -24,8 +29,51 @@ public class HighScores extends AppCompatActivity implements View.OnClickListene
 
         playscreen_intent = new Intent(this, Game.class);
 
+        boolean isSDPresent = android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
+
         // Load in all high scores
-        loadHsIF();
+        if (isSDPresent) {
+            loadHsSD();
+        }
+        else {
+            loadHsIF();
+        }
+
+
+    }
+
+    // Checks to see if a SD card is mounted and does not check for free space
+    public static boolean hasRealRemovableSdCard(Context context) {
+        return ContextCompat.getExternalFilesDirs(context, null).length >= 2;
+    }
+
+    // Checks to see if SD is mounted and has free space
+    public static boolean externalMemoryAvailable(Activity context) {
+        File[] storages = ContextCompat.getExternalFilesDirs(context, null);
+        if (storages.length > 1 && storages[0] != null && storages[1] != null)
+            return true;
+        else
+            return false;
+
+    }
+
+    private void loadHsSD() {
+        try {
+            // Open the SD Card Directory on the device
+            File privateLocation = getExternalFilesDir(null);
+            // Create or Open the HighScores.txt file form the SD card
+            File myfile = new File(privateLocation, "HighScores.txt");
+            // Create an InputStream that will allow you to read from the file
+            FileInputStream fis = openFileInput("HighScores.txt");
+            // Read scores from the FileInputStream
+            readScoresFIS(fis);
+        }
+        catch (Exception e) {
+            CharSequence text = "The file could not be opened from SD card\n" + e.toString();
+            int dur = Toast.LENGTH_LONG;
+            Toast message = Toast.makeText(this, text, dur);
+            message.show();
+        }
     }
 
     private void loadHsIF() {
@@ -35,7 +83,7 @@ public class HighScores extends AppCompatActivity implements View.OnClickListene
         }
         catch (Exception e) {
             CharSequence text = "The file could not be opened\n" + e.toString();
-            int dur = Toast.LENGTH_SHORT;
+            int dur = Toast.LENGTH_LONG;
             Toast message = Toast.makeText(this, text, dur);
             message.show();
         }
@@ -100,7 +148,7 @@ public class HighScores extends AppCompatActivity implements View.OnClickListene
         }
         catch (Exception e) {
             CharSequence text = "There was an issue with reading the file\n" + e.toString();
-            int dur = Toast.LENGTH_SHORT;
+            int dur = Toast.LENGTH_LONG;
             Toast message = Toast.makeText(this, text, dur);
             message.show();
         }
