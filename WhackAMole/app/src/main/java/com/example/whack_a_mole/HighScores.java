@@ -21,6 +21,7 @@ import java.util.ListIterator;
 
 public class HighScores extends AppCompatActivity implements View.OnClickListener {
     Intent playscreen_intent;
+    Intent optionscreen_intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class HighScores extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.high_scores);
 
         playscreen_intent = new Intent(this, Game.class);
+        optionscreen_intent = new Intent(this, Options.class);
 
         boolean isSDPresent = android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 
@@ -189,6 +191,7 @@ public class HighScores extends AppCompatActivity implements View.OnClickListene
             finish();
         }
         else if (v.getId() == R.id.hsquitbttn) {
+            startActivity(optionscreen_intent);
             finish();
         }
     }

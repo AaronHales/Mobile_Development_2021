@@ -9,6 +9,8 @@ import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
     protected Handler taskHandler = new Handler();
     // The isComplete variable will tell us when time is up!
     protected Boolean isComplete = false;
-    Button currentMole;
+    ImageButton currentMole;
     // Use the current time as the start time for the game
     Long startTime = System.currentTimeMillis();
     // Keep track of how many times the user has hit the mole
@@ -101,7 +103,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
         if (currentMole != null) {
             currentMole.setVisibility(View.INVISIBLE);
         }
-        Button newMole = (Button) findViewById(newButtonId);
+        ImageButton newMole = (ImageButton) findViewById(newButtonId);
         newMole.setVisibility(View.VISIBLE);
         currentMole = newMole;
     }
@@ -114,7 +116,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener{
         // Now we can loop through all the controls and find just the buttons
         for (int i = 0; i < group.getChildCount(); i++) {
             v = group.getChildAt(i);
-            if (v instanceof Button) {
+            if (v instanceof ImageButton) {
                 v.setOnClickListener(this); // Set the onClickListener for the button
                 // If the game is not over
                 if (!isComplete) {

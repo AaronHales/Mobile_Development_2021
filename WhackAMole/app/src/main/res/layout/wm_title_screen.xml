@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,34 +7,84 @@
     android:orientation="vertical"
     tools:context=".WMTitleScreen">
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/imageView8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.5"
-        android:gravity="center"
-        android:text="Title"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="match_parent"
+        android:cropToPadding="true"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/dirt_ground" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:adjustViewBounds="true"
+        android:rotation="180"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/grass_bottom_small" />
 
-    <Button
-        android:id="@+id/start_gamebttn"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Play" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/start_optionsbttn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Options" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="20"
+            android:text="Whack-A-Mole"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:cropToPadding="true"
+            app:srcCompat="@drawable/monty_mole_ground" />
+
+        <Button
+            android:id="@+id/start_gamebttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
+            android:text="Play"
+            android:textSize="16sp"
+            app:backgroundTint="#084702"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/start_optionsbttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
+            android:text="Options"
+            android:textSize="16sp"
+            app:backgroundTint="#084702"
+            app:cornerRadius="20dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

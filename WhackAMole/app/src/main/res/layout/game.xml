@@ -1,83 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/GameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dirt_ground"
     android:orientation="vertical"
     tools:context=".Game">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="200dp"
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
+        android:adjustViewBounds="true"
+        android:rotation="180"
+        app:srcCompat="@drawable/grass_bottom_small" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="200dp"
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
+        android:layout_gravity="bottom"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/grass_bottom_small" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:text="@string/bttn_text" />
-
-    <TextView
-        android:id="@+id/score"
+    <LinearLayout
+        android:id="@+id/GameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1.5"
-        android:gravity="center"
-        android:text="Score: 0" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="left"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="right"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button3"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="left"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button4"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="right"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button5"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="left"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button6"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="right"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button7"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="left"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <ImageButton
+            android:id="@+id/button8"
+            android:layout_width="200dp"
+            android:layout_height="85dp"
+            android:layout_gravity="right"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/monty_mole_ground" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
+            android:text="Score: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</FrameLayout>

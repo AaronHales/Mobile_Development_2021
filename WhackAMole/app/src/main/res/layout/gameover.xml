@@ -23,6 +23,14 @@
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/grass_bottom_small" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        app:srcCompat="@drawable/monty_mole_ground" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,6 +43,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
             android:text="Game Over!"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
@@ -47,6 +59,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="55dp"
             android:gravity="center"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
             android:text="You hit times."
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
@@ -59,6 +75,10 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:onClick="onClick"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
             android:text="Play Again"
             android:textSize="16sp"
             app:backgroundTint="#084702"
@@ -71,10 +91,23 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:onClick="onClick"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
             android:text="View Scores"
             android:textSize="16sp"
             app:backgroundTint="#084702"
             app:cornerRadius="20dp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/grass_bottom_small" />
 
 </FrameLayout>
