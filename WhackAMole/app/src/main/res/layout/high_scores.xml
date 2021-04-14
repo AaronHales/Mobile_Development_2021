@@ -26,6 +26,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -129,6 +130,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/gradient"
             android:gravity="center"
             android:onClick="onClick"
             android:shadowColor="#000000"
@@ -137,7 +140,8 @@
             android:shadowRadius="10"
             android:text="Play"
             android:textSize="16sp"
-            app:backgroundTint="#084702"
+            app:backgroundTint="#FFFFFF"
+            app:backgroundTintMode="multiply"
             app:cornerRadius="20dp" />
 
         <Button
@@ -145,6 +149,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/gradient"
             android:gravity="center"
             android:onClick="onClick"
             android:shadowColor="#000000"
@@ -153,7 +159,8 @@
             android:shadowRadius="10"
             android:text="Quit"
             android:textSize="16sp"
-            app:backgroundTint="#084702"
+            app:backgroundTint="#FFFFFF"
+            app:backgroundTintMode="multiply"
             app:cornerRadius="20dp" />
     </LinearLayout>
 

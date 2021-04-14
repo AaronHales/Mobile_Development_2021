@@ -15,74 +15,90 @@
         android:scaleType="fitXY"
         app:srcCompat="@drawable/dirt_ground" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_weight="0.25"
+        android:adjustViewBounds="true"
+        android:scaleType="fitEnd"
+        app:srcCompat="@drawable/grass_bottom_small" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="5dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:shadowColor="#000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="10"
+            android:shadowRadius="7"
             android:text="Enter your name:"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0.5"
             android:shadowColor="#000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="10"
-            android:textColor="#FFFFFF" />
+            android:shadowRadius="7"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:shadowColor="#000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="10"
+            android:shadowRadius="7"
             android:text="Choose the number of moles:"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <Spinner
             android:id="@+id/molessp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0.5" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:shadowColor="#000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="10"
+            android:shadowRadius="7"
             android:text="Choose the game difficulty:"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <RadioGroup
             android:id="@+id/diffRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
@@ -97,9 +113,10 @@
                 android:shadowColor="#000000"
                 android:shadowDx="10"
                 android:shadowDy="10"
-                android:shadowRadius="10"
+                android:shadowRadius="7"
                 android:text="Easy"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/mediumrb"
@@ -109,9 +126,10 @@
                 android:shadowColor="#000000"
                 android:shadowDx="10"
                 android:shadowDy="10"
-                android:shadowRadius="10"
+                android:shadowRadius="7"
                 android:text="Medium"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:id="@+id/hardrb"
@@ -121,9 +139,10 @@
                 android:shadowColor="#000000"
                 android:shadowDx="10"
                 android:shadowDy="10"
-                android:shadowRadius="10"
+                android:shadowRadius="7"
                 android:text="Hard"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
         </RadioGroup>
 
@@ -136,15 +155,17 @@
             android:shadowColor="#000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="10"
+            android:shadowRadius="7"
             android:text="Choose the game duration:"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
         <SeekBar
             android:id="@+id/durationsb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="0.5"
             android:max="60"
             android:progress="10" />
 
@@ -154,24 +175,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/gradient"
             android:onClick="onClick"
             android:shadowColor="#000000"
             android:shadowDx="10"
             android:shadowDy="10"
-            android:shadowRadius="10"
+            android:shadowRadius="7"
             android:text="Play Game"
             android:textSize="16sp"
-            app:backgroundTint="#084702"
-            app:cornerRadius="20dp" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_weight="2"
-            android:adjustViewBounds="true"
-            android:scaleType="fitEnd"
-            app:srcCompat="@drawable/grass_bottom_small" />
+            app:backgroundTint="#FFFFFF"
+            app:backgroundTintMode="multiply" />
 
     </LinearLayout>
 

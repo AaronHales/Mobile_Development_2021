@@ -29,7 +29,7 @@ public class HighScores extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.high_scores);
 
         playscreen_intent = new Intent(this, Game.class);
-        optionscreen_intent = new Intent(this, Options.class);
+        optionscreen_intent = new Intent(this, WMTitleScreen.class);
 
         boolean isSDPresent = android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
 

@@ -33,7 +33,7 @@ public class GameOver extends AppCompatActivity implements View.OnClickListener 
         message.setText("You hit " + score + " times!");
         scoresmes.setText("Game Over, " + playerName);
 
-        gamescreen_intent = new Intent(this, Game.class);
+        gamescreen_intent = new Intent(this, WMTitleScreen.class);
         hsscreen_intent = new Intent(this, HighScores.class);
 
         // Simpler way, but not the best for stability

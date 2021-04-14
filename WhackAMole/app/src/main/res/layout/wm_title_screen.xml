@@ -27,10 +27,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="5dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/titletext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -38,9 +39,6 @@
             android:fontFamily="monospace"
             android:gravity="center"
             android:shadowColor="#000000"
-            android:shadowDx="10"
-            android:shadowDy="10"
-            android:shadowRadius="20"
             android:text="Whack-A-Mole"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
@@ -60,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/gradient"
             android:onClick="onClick"
             android:shadowColor="#000000"
             android:shadowDx="10"
@@ -67,7 +67,8 @@
             android:shadowRadius="10"
             android:text="Play"
             android:textSize="16sp"
-            app:backgroundTint="#084702"
+            app:backgroundTint="#FFFFFF"
+            app:backgroundTintMode="multiply"
             app:cornerRadius="20dp" />
 
         <Button
@@ -75,6 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:background="@drawable/gradient"
             android:onClick="onClick"
             android:shadowColor="#000000"
             android:shadowDx="10"
@@ -82,7 +85,8 @@
             android:shadowRadius="10"
             android:text="Options"
             android:textSize="16sp"
-            app:backgroundTint="#084702"
+            app:backgroundTint="#FFFFFF"
+            app:backgroundTintMode="multiply"
             app:cornerRadius="20dp" />
 
     </LinearLayout>
