@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Reminder App</string>
+    <string name="enter_alarm_name_lbl">Enter the alarm name:</string>
+    <string name="alarm_name_edittxt">Alarm Name</string>
+    <string name="choose_data_bttn">Choose Date</string>
+    <string name="alarm_time_bttn">Alarm Time</string>
+    <string name="alarm_des_lbl">Alarm Description:</string>
+    <string name="save_alarm_bttn">Save Alarm</string>
+</resources>

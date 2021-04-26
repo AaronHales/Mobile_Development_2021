@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".AddAlarm">
+
+    <TextView
+        android:id="@+id/alarmNameLbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_alarm_name_lbl"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editAlarmName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/alarm_name_edittxt" />
+
+    <Button
+        android:id="@+id/alarmDateBttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/choose_data_bttn"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/alarmTimeBttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="@string/alarm_time_bttn"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/alarmDesLbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alarm_des_lbl"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editAlarmDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/alarmSaveBttn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_alarm_bttn"
+        android:textSize="18sp" />
+
+</LinearLayout>
