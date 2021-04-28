@@ -14,6 +14,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+import java.util.Calendar;
+
 public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
     // Create a global instance of AlarmKeeper. This will allow is to access this variable
@@ -36,9 +38,9 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.alarm);
 
         // Get handles to all of our buttons
-        saveButton = (Button) findViewById(R.id.alarmSaveBttn);
-        timeButton = (Button) findViewById(R.id.alarmTimeBttn);
-        dateButton = (Button) findViewById(R.id.alarmDateBttn);
+        saveButton = (Button) findViewById(R.id.saveBttn);
+        timeButton = (Button) findViewById(R.id.timeBttn);
+        dateButton = (Button) findViewById(R.id.dateBttn);
 
         // Set the button's onClickListeners
         saveButton.setOnClickListener(this);
@@ -69,8 +71,8 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void displayAlarm() {
-        description = (EditText) findViewById(R.id.editAlarmDes);
-        name = (EditText) findViewById(R.id.editAlarmName);
+        description = (EditText) findViewById(R.id.etDesc);
+        name = (EditText) findViewById(R.id.etAlarmName);
 
         // Set the alarm description and name
         description.setText(thisAlarm.alarmDesc);
@@ -81,13 +83,15 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
         // Create a string to use for the AM/PM value in the time
         String AMPM = " AM";
+
         // Create a string value to format the minute field in the time
         String strMinute;
+
         // Adjust hour to 12-hour time
         int hour = thisAlarm.alarmHour;
         if (hour > 12) {
             hour -= 12;
-            AMPM = " PM";
+            AMPM = " PM";   // Add the AM/PM value
         }
 
         // Format the minute value to be two-digit value
@@ -104,18 +108,56 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.saveBttn) {
+            EditText name = (EditText)findViewById(R.id.etAlarmName);
+            EditText desc = (EditText)findViewById(R.id.etDesc);
 
+            thisAlarm.alarmName = name.getText().toString();
+            thisAlarm.alarmDesc = desc.getText().toString();
+            DialogFragment newFragment = new MyAlertDialog();
+            newFragment.show(getFragmentManager(), "MyAlertDialog");
+        }
+        else if (id == R.id.dateBttn) {
+            DialogFragment newFragment = new MyDatePicker();
+            newFragment.show(getFragmentManager(), "MyDatePicker");
+        }
+        else if (id == R.id.timeBttn) {
+            DialogFragment newFragment = new MyTimePicker();
+            newFragment.show(getFragmentManager(), "MyTimePicker");
+        }
     }
 
     public static class MyDatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlarmKeeper thisAlarm = new AlarmKeeper();
 
-            return null;
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            Calendar now = Calendar.getInstance();
+            int year = now.get(Calendar.YEAR);
+            int month = now.get(Calendar.MONTH);
+            int day = now.get(Calendar.DAY_OF_MONTH);
+
+            return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            AddAlarm main = (AddAlarm)getActivity();
+            thisAlarm.alarmYear = year;
+            thisAlarm.alarmMonth = month;
+            thisAlarm.alarmDay = dayOfMonth;
+
+            Button dateButton = (Button)main.findViewById(R.id.dateBttn);
+            String monthformat = String.valueOf(month);
+            if (month < 10) {
+                monthformat = "0" + month;
+            }
+            String dayformat = String.valueOf(dayOfMonth);
+            if (dayOfMonth < 10) {
+                dayformat = "0" + dayformat;
+            }
+            dateButton.setText(monthformat + "/" + dayformat + "/" + year);
 
         }
     }
@@ -142,11 +184,13 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
     }
 
     public void clearAlarmScreen() {
-        description = (EditText) findViewById(R.id.editAlarmDes);
-        name = (EditText) findViewById(R.id.editAlarmName);
-        timeButton = (Button) findViewById(R.id.alarmTimeBttn);
-        dateButton = (Button) findViewById(R.id.alarmDateBttn);
+        // Get a handle to the relevant controls on the screen
+        description = (EditText) findViewById(R.id.etDesc);
+        name = (EditText) findViewById(R.id.etAlarmName);
+        timeButton = (Button) findViewById(R.id.timeBttn);
+        dateButton = (Button) findViewById(R.id.dateBttn);
 
+        // Reset all fields back to their initial state
         description.setText("");
         name.setText("");
         timeButton.setText("Set Alarm Time");

@@ -26,21 +26,6 @@ public class AlarmKeeper {
         alarmReqCode= (1 + r.nextInt(2)) * 10000 + r.nextInt(10000);
     }
 
-    // This method will clear all of the information from the current AlarmKeeper object
-    public void clear() {
-        alarmName = "";
-        alarmDesc = "";
-        alarmDay = 0;
-        alarmMonth = 0;
-        alarmYear = 0;
-        alarmHour = 0;
-        alarmMinute = 0;
-
-        // Get a new Alarm ID (or Request Code)
-        Random r = new Random( System.currentTimeMillis() );
-        alarmReqCode =  (1 + r.nextInt(2)) * 10000 + r.nextInt(10000);
-    }
-
     // This method will allow us to build an alarm object
     // from the string that was created with the buildString() method.
     // This is used to "unpack" the information that was passed from one
@@ -97,6 +82,18 @@ public class AlarmKeeper {
 
     // This method will allow us to cancel an alarm that has already been set in the system
     public void cancelAlarm(Context context) {
+        // Create a new Intent that points to the Alarm Receiver class
+        Intent intent = new Intent(context, AlarmKeeper.class);
+        intent.putExtra("alarm_message", alarmDesc);
+
+        // Create a Pending Intent for our alarm
+        PendingIntent sender = PendingIntent.getBroadcast(context, alarmReqCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Get the AlarmManager service
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        // Cancel the alarm!
+        alarmManager.cancel(sender);
 
     }
 
@@ -116,5 +113,20 @@ public class AlarmKeeper {
         strReturn += alarmReqCode;
 
         return strReturn;
+    }
+
+    // This method will clear all of the information from the current AlarmKeeper object
+    public void clear() {
+        alarmName = "";
+        alarmDesc = "";
+        alarmDay = 0;
+        alarmMonth = 0;
+        alarmYear = 0;
+        alarmHour = 0;
+        alarmMinute = 0;
+
+        // Get a new Alarm ID (or Request Code)
+        Random r = new Random( System.currentTimeMillis() );
+        alarmReqCode =  (1 + r.nextInt(2)) * 10000 + r.nextInt(10000);
     }
 }

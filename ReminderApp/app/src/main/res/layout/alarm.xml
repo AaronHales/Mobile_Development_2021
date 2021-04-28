@@ -16,7 +16,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editAlarmName"
+        android:id="@+id/etAlarmName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -25,7 +25,7 @@
         android:text="@string/alarm_name_edittxt" />
 
     <Button
-        android:id="@+id/alarmDateBttn"
+        android:id="@+id/dateBttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -33,7 +33,7 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/alarmTimeBttn"
+        android:id="@+id/timeBttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -48,7 +48,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editAlarmDes"
+        android:id="@+id/etDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -58,7 +58,7 @@
         android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/alarmSaveBttn"
+        android:id="@+id/saveBttn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/save_alarm_bttn"
