@@ -2,10 +2,12 @@ package com.example.reminderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,14 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+
+/*
+ * Mobile App Dev
+ * Chapter 26
+ * Activity: Reminder Alarm
+ * Aaron Hales
+ * 5/4/21
+ */
 
 public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
@@ -130,8 +140,6 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
     public static class MyDatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
-        AlarmKeeper thisAlarm = new AlarmKeeper();
-
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             Calendar now = Calendar.getInstance();
             int year = now.get(Calendar.YEAR);
@@ -143,21 +151,27 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-            AddAlarm main = (AddAlarm)getActivity();
-            thisAlarm.alarmYear = year;
-            thisAlarm.alarmMonth = month;
-            thisAlarm.alarmDay = dayOfMonth;
+            AddAlarm activity = (AddAlarm)getActivity();
+            activity.thisAlarm.alarmYear = year;
+            activity.thisAlarm.alarmMonth = month;
+            activity.thisAlarm.alarmDay = dayOfMonth;
 
-            Button dateButton = (Button)main.findViewById(R.id.dateBttn);
-            String monthformat = String.valueOf(month);
-            if (month < 10) {
-                monthformat = "0" + month;
+            Button dateButton = (Button)activity.findViewById(R.id.dateBttn);
+            String monthFormat = "";
+            String dayFormat = "";
+            if (month < 9) {
+                monthFormat = "0" + (month + 1);
             }
-            String dayformat = String.valueOf(dayOfMonth);
+            else {
+                monthFormat = "" + (month + 1);
+            }
             if (dayOfMonth < 10) {
-                dayformat = "0" + dayformat;
+                dayFormat = "0" + dayOfMonth;
             }
-            dateButton.setText(monthformat + "/" + dayformat + "/" + year);
+            else {
+                dayFormat = "" + dayOfMonth;
+            }
+            dateButton.setText(monthFormat + "/" + dayFormat + "/" + year);
 
         }
     }
@@ -165,21 +179,80 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
     public static class MyTimePicker extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-            return null;
+            Calendar now = Calendar.getInstance();
+            int hour = now.get(Calendar.HOUR_OF_DAY);
+            int minute = now.get(Calendar.MINUTE);
+            return new TimePickerDialog(getActivity(), this, hour, minute, false);
         }
 
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            AddAlarm activity = (AddAlarm)getActivity();
+            activity.thisAlarm.alarmHour = hourOfDay;
+            activity.thisAlarm.alarmMinute = minute;
+            String AMPM = " AM";
+            String strMinute = "";
+            Button timeButton = (Button)activity.findViewById(R.id.timeBttn);
 
+            if (hourOfDay > 12) {
+                hourOfDay -= 12;
+                AMPM = " PM";
+            }
+            else {
+                AMPM = " AM";
+            }
+            if (minute < 10) {
+                strMinute = "0" + minute;
+            }
+            else {
+                strMinute = "" + minute;
+            }
+            timeButton.setText(hourOfDay + ":" + strMinute + AMPM);
         }
     }
 
     public static class MyAlertDialog extends DialogFragment {
 
         public Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("Are you sure you want to save this alarm");
+            builder.setCancelable(false);
 
-            return null;
+            // Create a "Yes" button in the dialog
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    AddAlarm activity = (AddAlarm)getActivity();
+                    if (activity.thisAlarm.alarmName == null || activity.thisAlarm.alarmName.length() == 0) {
+                        return;
+                    }
+                    if (activity.thisAlarm.alarmDesc == null || activity.thisAlarm.alarmDesc.length() == 0) {
+                        return;
+                    }
+                    if (activity.thisAlarm.alarmYear == 0) {
+                        return;
+                    }
+                    if (activity.thisAlarm.alarmHour == 0) {
+                        return;
+                    }
+                    activity.thisAlarm.setAlarm(activity);
+                    activity.clearAlarmScreen();
+                }
+            });
+
+            // Create a "No" button in the dialog
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    // There is no need to do anything in this method, since the
+                    // user canceled the save action
+                    AddAlarm activity = (AddAlarm)getActivity();
+                    activity.clearAlarmScreen();
+
+                }
+            });
+
+            return builder.create();
         }
     }
 
