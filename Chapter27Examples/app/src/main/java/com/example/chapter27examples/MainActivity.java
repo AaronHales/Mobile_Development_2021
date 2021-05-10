@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.net.*;
 import android.view.Gravity;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Toast;
 import android.app.Notification;
