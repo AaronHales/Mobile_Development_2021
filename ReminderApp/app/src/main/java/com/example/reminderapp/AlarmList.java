@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -34,6 +36,8 @@ public class AlarmList extends ListActivity {
 
         // Re-populate the display list of alarms
         buildAlarmDisplayStrings();
+        ListView lv = (ListView)getListView();
+        registerForContextMenu(lv);
     }
 
     public void buildAlarmDisplayStrings() {
@@ -137,6 +141,19 @@ public class AlarmList extends ListActivity {
     // This method is completed by the student
     // This method is called when a sure clicks on a menu item
     public boolean onOptionsItemSelected(MenuItem item) {
+        // If the user clicked the "Add" button
+        if (item.getItemId() == R.id.actionAdd) {
+            // Create a new Intent to move to the AddAlarm screen
+            Intent addIntent = new Intent(this, AddAlarm.class);
+
+            // Add blank information to tell the AddAlarm screen
+            // that we aer adding a new alarm
+            addIntent.putExtra("alarm", "");
+            addIntent.putExtra("index", -1);
+
+            //Start the new Activity
+            startActivityForResult(addIntent, 0);
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -144,17 +161,35 @@ public class AlarmList extends ListActivity {
     // This method is called when the program need to create a Context menu
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.contextmenu, menu);
     }
 
     // This method is completed by the student
     // This method is called when the sure clicks on a context menu item
-    public boolean onContextItemsSelected(MenuItem item) {
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.actionDelete) {
+            AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+            int index = info.position;
+            if (index >= 0 && index < myAlarmKeepers.size()) {
+                AlarmKeeper alarm = myAlarmKeepers.get(index);
+                alarm.cancelAlarm(this);
+                myAlarmKeepers.remove(index);
+                myAlarmDisplayStrings.remove(index);
+                saveAlarms();
+                buildAlarmDisplayStrings();
+            }
+        }
         return super.onOptionsItemSelected(item);
     }
 
     // This method is completed by the student
     // This method is called when the program needs to create an ActionBar menu
     public boolean onCreateOptionsMenu (Menu menu) {
+        // Get the MenuInflater object from the Android system
+        MenuInflater mi = getMenuInflater();
+        // "inflate" the menu using our actionbar_menu layout XML
+        mi.inflate(R.menu.actionbar, menu);
         return true; // all done!
     }
 

@@ -236,7 +236,8 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
                         return;
                     }
                     activity.thisAlarm.setAlarm(activity);
-                    activity.clearAlarmScreen();
+//                    activity.clearAlarmScreen();
+                    activity.closeAlarmScreen();
                 }
             });
 
@@ -246,9 +247,6 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
                 public void onClick(DialogInterface dialog, int id) {
                     // There is no need to do anything in this method, since the
                     // user canceled the save action
-                    AddAlarm activity = (AddAlarm)getActivity();
-                    activity.clearAlarmScreen();
-
                 }
             });
 

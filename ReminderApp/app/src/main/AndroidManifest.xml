@@ -9,13 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp">
-        <activity android:name=".AlarmReceiver"></activity>
-        <activity android:name=".AlarmList" />
-        <activity android:name=".AlarmKeeper" />
-        <activity android:name=".AddAlarm">
+        <activity android:name=".Snooze">
+            android:launchMode="singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true"
+        </activity>
+        <activity
+            android:label="Remind Me!"
+            android:name=".AddAlarm" >
+
+            <!-- intent-filter section used for Chapter 10 & Chapter 11 Act #1
+                 and will be commented out in Chapter 11 Activity #2 -->
+
+            <!-- <intent-filter >
+            <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+        </activity>
+
+        <activity
+            android:label="Remind Me!"
+            android:name=".AlarmList" >
+
+            <!-- Student will add intent-filter sectn here in Chap 11 Act #2 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
