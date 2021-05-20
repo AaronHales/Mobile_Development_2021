@@ -98,7 +98,7 @@ public class AlarmList extends ListActivity {
         }
         catch (Exception e) {
             // file error
-            Toast t = Toast.makeText(this, "Something went wrong.\nError Code:\n" + e, Toast.LENGTH_LONG);
+            Toast t = Toast.makeText(this, "Something went wrong. (In AlarmList.loadAlarms())\nError Code:\n" + e, Toast.LENGTH_LONG);
             t.show();
         }
     }
@@ -133,7 +133,7 @@ public class AlarmList extends ListActivity {
         }
         catch (Exception e) {
             // file error
-            Toast t = Toast.makeText(this, "Something went wrong.\nError Code:\n" + e, Toast.LENGTH_LONG);
+            Toast t = Toast.makeText(this, "Something went wrong. (In AlarmList.saveAlarms())\nError Code:\n" + e, Toast.LENGTH_LONG);
             t.show();
         }
     }
